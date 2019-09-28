@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style type="text/css">
+      @import "bootstrap"; 
+      .container{
+        text-align:center
+      }
+      body{
+        background-color: #EEEEEE;
+      } 
+    </style>
+  </head>
+
+  <body>
+  <div class="container">
+    <h3> HOUSE1 </h3>
+    <%= image_tag 'house1.jpg', size: '400x300' %>
+    <br>
+    <%= link_to "詳細を見る", "items/show/1" %>
+  </div>
+  <br>
+  <br>
+  <div class="container">
+    <h3> HOUSE2 </h3>
+    <%= image_tag 'house2.jpg', size: '400x300' %>
+    <br>
+    <%= link_to "詳細を見る", "items/show/2" %>
+  <br>
+  <br>
+  </div>
+  <div class="container">
+    <h3> HOUSE3 </h3>
+    <%= image_tag 'house3.jpg', size: '400x300' %>
+    <br>
+    <%= link_to "詳細を見る", "items/show/3" %>
+  <br>
+  </div>
+  <div class="container">
+    <h3> HOUSE4 </h3>
+    <%= image_tag 'house4.jpg', size: '400x300' %>
+    <br>
+    <%= link_to "詳細を見る", "items/show/4" %>
+  </div>
+  </body>
+</html>
