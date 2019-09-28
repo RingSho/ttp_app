@@ -2,20 +2,60 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <style type="text/css">
-      @import "bootstrap"; 
-      .container{
-        text-align:center
-      }
-    </style>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+  <header>
+  <div class="logo">
+  <%= image_tag 'logo.png', size: '200x78' %>
+  </div>
+  </header>
+  <div class="back">
+    <%= link_to "戻る", "/items" %>
+  </div>
   <div class="container">
-    <h3> HOUSE1 </h3>
+    <h3> <%= @data[:name] %></h3>
     <%= @id %>
     <%= image_tag @image_name, size: '600x450' %>
     <br>
   </div>
+  <div class="content">
+    <p>¥<%= @data[:price] %> / 1泊</p>
+    <p>ADDRESS: <%= @data[:address] %></p>
+    <br>
+    <p>【CONCEPT】</p>
+    <p><%= @data[:concept] %></p>
+    <br>
+
+  <div class=content>
+    <h3>予約不可日</h3>
+    <% num = @reservated.length()%>
+    <% @reservated.each do |date|%>
+      <p><%= date[:start_date]+16.hours %> - <%= date[:end_date]+10.hours %></p>
+    <% end %>
+  </div>
+
+    <div class="content">
+      <%= form_for(@form, url: { controller: 'items', action: 'create' }) do |f| %>
+        <table>
+          <tr>
+            <th>チェックイン</td>
+            <th>チェックアウト</td>
+          <tr>
+            <td><%= f.date_field :start_date %></td>
+            <td><%= f.date_field :end_date %></td>
+            <td><%= f.hidden_field :item_id, :value => @data[:id] %></td>
+          </tr>
+        </table>
+        <%= f.submit "予約する" %>
+      <% end %>
+    </div>
+  </div>
+  <br>
+  <br>
+  <footer>
+  </footer>
   </body>
 </html>

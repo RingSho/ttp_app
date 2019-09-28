@@ -1,0 +1,47 @@
+.container{
+  text-align: center;
+  color: white;
+  border-bottom: 1px solid white;
+  margin: 40px 0px;
+}
+
+.last{
+  margin: 0px;
+}
+
+body{
+  background-color: #2F3E57;
+  color: white;
+} 
+
+header, footer{
+  height: 80px;
+  background-color: white;
+}
+
+
+.content {
+  color: white;
+  text-align: center;
+}
+
+a:visited { /*アクセスしたことのあるリンク*/
+  color: #BBBBBB;
+  }
+
+a:hover {/*マウスが上に乗っている状態*/
+  color: white;
+  text-decoration:underline;
+  }
+
+a:link { /*アクセスしたことのないリンク*/
+    color: white;
+  }
+
+.back{
+  margin: 20px;
+}
+
+#text {
+  display:none;
+}

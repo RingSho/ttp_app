@@ -2,46 +2,64 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <style type="text/css">
-      @import "bootstrap"; 
-      .container{
-        text-align:center
-      }
-      body{
-        background-color: #EEEEEE;
-      } 
-    </style>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+  <header>
+  <div class="logo">
+  <%= image_tag 'logo.png', size: '200x78' %>
+  </div>
+  </header>
   <div class="container">
-    <h3> HOUSE1 </h3>
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+  </div>
+  <div class="container">
+    <h3> <%= @data[0][:name] %>  </h3>
     <%= image_tag 'house1.jpg', size: '400x300' %>
+    <p>¥<%= @data[0][:price] %>  / 1泊</p>
+    <p>ADDRESS: <%= @data[0][:address] %></p>
     <br>
     <%= link_to "詳細を見る", "items/show/1" %>
+  <br>
+  <br>
   </div>
-  <br>
-  <br>
   <div class="container">
-    <h3> HOUSE2 </h3>
+    <h3> <%= @data[1][:name] %>  </h3>
     <%= image_tag 'house2.jpg', size: '400x300' %>
+    <p>¥<%= @data[1][:price] %>  / 1泊</p>
+    <p>ADDRESS: <%= @data[1][:address] %></p>
     <br>
     <%= link_to "詳細を見る", "items/show/2" %>
   <br>
   <br>
   </div>
   <div class="container">
-    <h3> HOUSE3 </h3>
+    <h3> <%= @data[2][:name] %> </h3>
     <%= image_tag 'house3.jpg', size: '400x300' %>
+    <p>¥<%= @data[2][:price] %> / 1泊</p>
+    <p>ADDRESS: <%= @data[2][:address] %></p>
     <br>
-    <%= link_to "詳細を見る", "items/show/3" %>
+    <%= link_to "詳細を見る", "items/show/3", class: 'btn btn-default' %>
+  <br>
   <br>
   </div>
-  <div class="container">
-    <h3> HOUSE4 </h3>
+  <div class="container last">
+    <h3> <%= @data[3][:name] %> </h3>
     <%= image_tag 'house4.jpg', size: '400x300' %>
+    <p>¥<%= @data[3][:price] %> / 1泊</p>
+    <p>ADDRESS: <%= @data[3][:address] %></p>
     <br>
-    <%= link_to "詳細を見る", "items/show/4" %>
+    <%= link_to "詳細を見る", "items/show/4", class: 'btn btn-default' %>
+  <br>
+  <br>
   </div>
+  <footer>
+  </footer>
   </body>
 </html>
